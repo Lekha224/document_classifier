@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-card">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-folder-open"></i>
+
+    </div>
+
+    <h1>
+        <span class="blue">Document Management</span>
+        <span class="pink">System</span>
+    </h1>
+
+    <div class="line"></div>
+
+    <p class="subtitle">
+        Upload, organize and categorize your documents with ease.
+    </p>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+            <h2>Drag & Drop your file here</h2>
+
+            <p>or</p>
+
+            <label for="document" class="choose-btn">
+
+                <i class="fa-regular fa-folder"></i>
+
+                Choose File
+
+            </label>
+
+            <input
+                type="file"
+                id="document"
+                name="document"
+                required>
+
+            <p class="formats">
+                Supported formats:
+                PDF, DOCX, TXT
+            </p>
+
+        </div>
+
+        <button type="submit" class="upload-btn">
+
+            <i class="fa-solid fa-upload"></i>
+
+            Upload Document
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uploaded Documents</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-card">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-folder-open"></i>
+
+    </div>
+
+    <h1>
+
+        <span class="blue">Uploaded</span>
+
+        <span class="pink">Documents</span>
+
+    </h1>
+
+    <div class="line"></div>
+
+    <p class="subtitle">
+        Manage all uploaded documents in one place.
+    </p>
+
+    <table class="doc-table">
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Filename</th>
+
+            <th>Category</th>
+
+            <th>Upload Date</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for document in documents %}
+
+        <tr>
+
+            <td>{{ document[0] }}</td>
+
+            <td>{{ document[1] }}</td>
+
+            <td>
+
+                <span class="category">
+
+                    {{ document[2] }}
+
+                </span>
+
+            </td>
+
+            <td>{{ document[3] }}</td>
+
+            <td>
+
+                <a href="/delete/{{ document[0] }}"
+                onclick="return confirm('Delete this document?')">
+
+                    <button class="delete-btn">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Delete
+
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <br><br>
+
+    <a href="/">
+
+        <button class="upload-btn">
+
+            <i class="fa-solid fa-upload"></i>
+
+            Upload New Document
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
